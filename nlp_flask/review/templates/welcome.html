@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<br/>
+<font color="red" size="5">This website provides sentimental analysis prediction for input sentence<br/></font>
+<br />
+<font size="4">We use multiple machine learning models to establish our model based on Large Movie Review Dataset</font><br />
+<a href=" ">http://ai.stanford.edu/~amaas/data/sentiment/</a><br />
+<br />
+<br />
+<font size="4">You can compare the results predicted by Naive-Bayes, SVM, Logistic Regression</font><br />
+<br />
+<font size="4">The results label "positive" or "negative" to the sentence and highlight the sentimental key words </font>
+<br />
+<br />
+<br />
+<font size="4">We also have a LSTM RNN model to label the main idea of the sentence by emoji, please refer to the notebook</font>
+<p>❤️ ⚾ 😄 😞 🍴</p>
+<br />
+<br />
+<font size="4">Please click the button below to submit a form of sentence</font><br />
+<br />
+<button onclick="location.href = '/form/';">Fill Form</button>
+<br />
+<br />
+<br />
+
+{% endblock %}

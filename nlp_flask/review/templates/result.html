@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<style> 
+    mark{
+        background: orange;
+        color: black;
+    }
+</style>
+{% endblock %}
+
+<br/>
+{% block body %}
+ The result from Support Vector Classifier: {{sentiment}}
+<br/>
+<br />
+<div class="context" style="border-style: dashed;border-width: 1px">
+{{line}}
+</div>
+<br />
+<br />
+<br />
+ The result from Logistic Regression: {{sentiment_lr}}
+<br/>
+<br />
+<div class="context2" style="border-style: dashed;border-width: 1px">
+{{line}}
+</div>
+<br />
+<br />
+<br />
+ The result from Naive-Bayes: {{sentiment_nb}}
+<br/>
+<br />
+<div class="context3" style="border-style: dashed;border-width: 1px">
+{{line}}
+</div>
+<br />
+<br />
+<br />
+{% endblock %}
+
+<!-- js block for demo  -->
+{% block afterscript %}
+
+<script type=text/javascript>
+
+        var keywords = Array();
+        {% for i in highlight_words %}
+            keywords.push( '{{i}}' );
+        {% endfor %}
+
+        var keywords2 = Array();
+        {% for i in hightwords_lr %}
+            keywords2.push( '{{i}}' );
+        {% endfor %}
+
+        var keywords3 = Array();
+        {% for i in hightwords_nb %}
+            keywords3.push( '{{i}}' );
+        {% endfor %}
+
+        $(document).ready(function() {
+        var options = {
+            "element": "mark",
+            "className": "",
+            "exclude": [],
+            "separateWordSearch": true,
+            "accuracy": "partially",
+            "diacritics": true,
+            "synonyms": {},
+            "iframes": false,
+            "acrossElements": false,
+            "caseSensitive": false,
+            "ignoreJoiners": false,
+            "each": function(node){
+                // node is the marked DOM element
+            },
+        };
+
+            $(".context").mark(keywords, options);
+            $(".context2").mark(keywords, options);
+            $(".context3").mark(keywords, options);
+
+        })
+</script>
+
+
+
+
+<br />
+{% endblock %}
+
+<!-- end -->
